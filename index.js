@@ -1,26 +1,40 @@
 const express = require('express');
 var cors = require('cors');
-const moogose = require('mongoose');
-const port = process.env.PORT || 3000;
-
+const mongoose = require('mongoose');
+require('dotenv').config()
+const port = process.env.PORT;
+const userRoutes = require('./routes/userRoute')
+const yamlRoutes = require('./routes/yamlVisulizerRoute')
 const app = express();
 app.use(cors());
 
 // Mongo Connections
-// User Routings
+mongoose.connect(`${process.env.MONGO_URL}`)
 
-try{
-    const connect = moogose.connect(`mongodb+srv://mayur:mayur--31@cluster0.v9x6kcw.mongodb.net/yaml-`)
-    if (connect){
-        app.listen(port, ()=> console.log(`Connected to port: ${port}`));
-    }else{
-        console.log("Some error Occured While Connecting")
-    }
+mongoose.connection.on('connected', function () {
+    console.log('Connected to Database');
+});
 
-}catch(error){
-    console.log('500, Internal Error')
-}
+// If the connection throws an error
+mongoose.connection.on('error', function (err) {
+    console.log('Mongoose default connection error: ');
+});
 
+// When the connection is disconnected
+mongoose.connection.on('disconnected', function () {
+    console.log('Mongoose default connection disconnected');
+});
+
+
+
+// App Routes
+app.use('/api', userRoutes)
+
+// File Upload Routes
+app.use('/api/file', yamlRoutes)
+
+
+app.listen(port, () => console.log(`Connected to port: ${port}`));
 
 
 

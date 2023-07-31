@@ -1,9 +1,12 @@
-import React from 'react'
+const express = require('express');
+const user_route = express()
+const bodyParser = require('body-parser');
+const user_controller = require('../controllers/userController');
 
-function userRoute() {
-  return (
-    <div>userRoute</div>
-  )
-}
+user_route.use(bodyParser.json());
+user_route.use(bodyParser.urlencoded({extended:true}));
 
-export default userRoute
+user_route.post('/register', user_controller.register_new_user);
+user_route.post('/signin', user_controller.signin)
+
+module.exports = user_route
