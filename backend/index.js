@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 require('dotenv').config()
 const port = process.env.PORT;
 const userRoutes = require('./routes/userRoute')
-
+const yamlRoutes = require('./routes/yamlVisulizerRoute')
 const app = express();
 app.use(cors());
 
@@ -30,7 +30,8 @@ mongoose.connection.on('disconnected', function () {
 // App Routes
 app.use('/api', userRoutes)
 
-
+// File Upload Routes
+app.use('/api/file', yamlRoutes)
 
 
 app.listen(port, () => console.log(`Connected to port: ${port}`));
