@@ -6,6 +6,8 @@ module.exports = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
     "./node_modules/flowbite/**/*.js"
   ],
+  darkMode: ["class"],
+
   theme: {
     extend: {
       backgroundImage: {

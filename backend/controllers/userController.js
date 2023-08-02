@@ -64,10 +64,10 @@ const signin = async (req, res) => {
                 const token = await token_generation(user._id);
                 const userAccount = {
                     _id: user._id,
-                    name: user.name,
+                    first_name: user.first_name,
+                    last_name: user.last_name,
                     email: user.email,
                     image: user.image,
-                    age: user.age,
                     password: user.password,
                     role: user.role,
                     token: token

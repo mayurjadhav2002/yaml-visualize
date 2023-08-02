@@ -1,7 +1,7 @@
 const YAML = require('../Models/yamlModel')
 const file_upload = async(req,res)=>{
     try{
-        const user = req.body.user;
+        const user = req.body.user || 'Undefined';
         const filename = req.file.filename;
         const fileUpload = new YAML({
             user: user,

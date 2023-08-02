@@ -7,6 +7,6 @@ user_route.use(bodyParser.json());
 user_route.use(bodyParser.urlencoded({extended:true}));
 
 user_route.post('/register', user_controller.register_new_user);
-user_route.post('/signin', user_controller.signin)
+user_route.post('/login', user_controller.signin)
 
 module.exports = user_route

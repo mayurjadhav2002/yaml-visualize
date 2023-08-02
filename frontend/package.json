@@ -9,19 +9,39 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.16",
+    "@reduxjs/toolkit": "^1.9.5",
     "@types/node": "20.4.5",
     "@types/react": "18.2.18",
     "@types/react-dom": "18.2.7",
     "autoprefixer": "10.4.14",
+    "axios": "^1.4.0",
     "eslint": "8.46.0",
     "eslint-config-next": "13.4.12",
     "flowbite": "^1.8.1",
     "flowbite-react": "^0.5.0",
+    "js-token": "^1.0.0",
+    "loose-envify": "^1.4.0",
     "next": "13.4.12",
     "postcss": "8.4.27",
-    "react": "18.2.0",
+    "react": "^18.2.0",
     "react-dom": "18.2.0",
+    "react-dropzone": "^14.2.3",
+    "react-icons": "^4.10.1",
+    "react-redux": "^8.1.2",
     "tailwindcss": "3.3.3",
     "typescript": "5.1.6"
-  }
+  },
+  "description": "This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).",
+  "main": "next.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mayurjadhav2002/yaml-visualize.git"
+  },
+  "author": "Mayur Jadhav",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mayurjadhav2002/yaml-visualize/issues"
+  },
+  "homepage": "https://github.com/mayurjadhav2002/yaml-visualize#readme"
 }
