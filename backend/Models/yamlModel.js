@@ -8,6 +8,14 @@ const FileSchema = mongoose.Schema({
    filename:{
     type: String,
     require: true
+   },
+   unique_key: {
+      type: String, 
+      require:true
+   },
+   project_name:{
+      type: String,
+      default: "Untitled Document"
    }
 }, { timestamps: true });
 

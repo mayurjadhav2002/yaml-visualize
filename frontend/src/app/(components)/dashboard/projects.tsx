@@ -4,35 +4,48 @@ import React, { useState, Fragment, useCallback } from 'react'
 import { FcOpenedFolder } from 'react-icons/fc'
 import { Dialog, Transition } from '@headlessui/react'
 import { FcFile } from 'react-icons/fc'
-import { useDropzone } from "react-dropzone";
 import axios from 'axios'
+import Dropzone from 'react-dropzone-uploader'
 
 
+import 'react-dropzone-uploader/dist/styles.css'
 
 
 function projects() {
     let [isOpen, setIsOpen] = useState(false)
     const [projectName, setProjectName] = useState();
 
-    const [files, setFiles] = useState([]);
     const [uploadStatus, setUploadStatus] = useState("");
-    const onUpload = () =>{
-        console.log('upload')
+   
+    // File Upload 
+    // called every time a file's `status` changes
+    // const handleChangeStatus = ({file}) => { 
+    //     const body  = new FormData();
+    //     body.append('file', file)
+    //     const request:Boolean = axios.post('http://localhost:3080/api/file/demo_upload', body)
+    //     if(request){
+    //         console.log('file uploaded')
+    //     }else{
+    //         console.log("failed")
+    //     }    }
+    interface Files {
+        meta: String,
+        file:File
     }
 
-    const onDrop = useCallback((acceptedFiles: any) => {
-    
-        console.log(acceptedFiles);
-    }, []);
-
-
-    const { isDragActive, getRootProps, getInputProps, isDragReject, acceptedFiles } = useDropzone({
-        onDrop,
-        minSize: 0,
-    })
-
-    // File Upload 
-
+    const handleChangeStatus = async({ meta, file }:Files, status:String) => {
+        if(status === 'done'){
+        const body  = new FormData();
+        body.append('file', file)
+        const request:any = await axios.post('http://localhost:3080/api/file/demo_upload', body)
+        console.log(request)
+        if(request){
+            console.log('file uploaded')
+        }else{
+            console.log("failed")
+        } 
+        }
+     }
 
     return (
         <div>
@@ -76,32 +89,28 @@ function projects() {
                     <h1 className='text-xl font-semibold flex items-center'> Upload New File</h1>
                 </div>
 
-                <div {...getRootProps()} className='w-full mt-5 min-h-40 h-40 bg-blue-50 text-center border-4 border-dotted border-blue-300'>
-                    <input {...getInputProps()} />
-                    {isDragActive ? (
-                        <div className='py-10'>
-                            <div>
-                                <FcFile className="mx-auto w-8 h-8 p-1 rounded-md bg-blue-100" />
-                            </div>
-                            <h1 className='text-md font-semibold'>Drop here to Upload File</h1>
-                        </div>) : (
-                        <div className='py-10'>
-                            <div>
-                                <FcFile className="mx-auto w-8 h-8 p-1 rounded-md bg-blue-100" />
-                            </div>
-                            <h1 className='text-md font-semibold'>Drag and Drop File, or <span className='text-blue-500'>Browse</span></h1>
-                            <span className='text-gray-600 text-sm'>Support Only .yaml or .yml Files</span>
-                        </div>
-                    )}
-                    {isDragReject && "File type not accepted, sorry!"}
-                    <ul className="list-group mt-2">
-                        {acceptedFiles.length > 0 && acceptedFiles.map(acceptedFile => (
-                            <li className="list-group-item list-group-item-success">
-                                {acceptedFile.name}
-                            </li>
-                        ))}
-                    </ul>
-                    <p>{uploadStatus}</p>
+                <div className='w-full mt-5 overflow-hidden bg-blue-50 text-center border-4 border-dotted border-blue-300'>
+                <Dropzone 
+ onChangeStatus={handleChangeStatus}
+ maxFiles={1}
+ multiple={false}
+ canCancel={true}
+ styles={{
+    dropzone: { overflow: 'hidden' },
+    dropzoneActive: { borderColor: 'green' },
+  }}
+                  inputContent={(files, extra) => (extra.reject ? 'Image files only' : 
+                  <div className='py-10'>
+                  <div>
+                      <FcFile className="mx-auto w-8 h-8 p-1 rounded-md bg-blue-100" />
+                  </div>
+                  <h1 className='text-md font-semibold'>Drag and Drop File, or <span className='text-blue-500'>Browse</span></h1>
+                  <span className='text-gray-600 text-sm'>Support Only .yaml or .yml Files</span>
+              </div>
+                  )}
+
+    />
+              
 
                 </div>
 
