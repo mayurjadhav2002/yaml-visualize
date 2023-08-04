@@ -7,6 +7,7 @@ const userRoutes = require('./routes/userRoute')
 const yamlRoutes = require('./routes/yamlVisulizerRoute')
 const app = express();
 app.use(cors());
+app.use('/static', express.static(__dirname + '/public'));
 
 // Mongo Connections
 mongoose.connect(`${process.env.MONGO_URL}`)

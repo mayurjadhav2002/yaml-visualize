@@ -11,12 +11,12 @@ import Dropzone from 'react-dropzone-uploader'
 import 'react-dropzone-uploader/dist/styles.css'
 
 
-function projects() {
+function projects(props) {
     let [isOpen, setIsOpen] = useState(false)
     const [projectName, setProjectName] = useState();
 
-    const [uploadStatus, setUploadStatus] = useState("");
-   
+    const [uploadStatus, setUploadStatus] = useState(false);
+
     // File Upload 
     // called every time a file's `status` changes
     // const handleChangeStatus = ({file}) => { 
@@ -30,22 +30,31 @@ function projects() {
     //     }    }
     interface Files {
         meta: String,
-        file:File
+        file: File
     }
+    const handleChangeStatus = async ({ meta, file }: Files, status: String) => {
+        if (status === 'done') {
+            
+            const header = {
+                'Authorization': props.user.token
+            }
+            const body = new FormData();
+            body.append('file', file)
+            body.append('user', props.user._id)
 
-    const handleChangeStatus = async({ meta, file }:Files, status:String) => {
-        if(status === 'done'){
-        const body  = new FormData();
-        body.append('file', file)
-        const request:any = await axios.post('http://localhost:3080/api/file/demo_upload', body)
-        console.log(request)
-        if(request){
-            console.log('file uploaded')
-        }else{
-            console.log("failed")
-        } 
+            setUploadStatus(true)
+            const request: any = await axios.post('http://localhost:3080/api/file/upload', body, {headers: header})
+            console.log(request)
+            if (request) {
+                console.log('file uploaded')
+                setUploadStatus(false)
+ 3           
+            } else {
+                console.log("failed")
+                setUploadStatus(false)
+            }
         }
-     }
+    }
 
     return (
         <div>
@@ -89,28 +98,35 @@ function projects() {
                     <h1 className='text-xl font-semibold flex items-center'> Upload New File</h1>
                 </div>
 
-                <div className='w-full mt-5 overflow-hidden bg-blue-50 text-center border-4 border-dotted border-blue-300'>
-                <Dropzone 
- onChangeStatus={handleChangeStatus}
- maxFiles={1}
- multiple={false}
- canCancel={true}
- styles={{
-    dropzone: { overflow: 'hidden' },
-    dropzoneActive: { borderColor: 'green' },
-  }}
-                  inputContent={(files, extra) => (extra.reject ? 'Image files only' : 
-                  <div className='py-10'>
-                  <div>
-                      <FcFile className="mx-auto w-8 h-8 p-1 rounded-md bg-blue-100" />
-                  </div>
-                  <h1 className='text-md font-semibold'>Drag and Drop File, or <span className='text-blue-500'>Browse</span></h1>
-                  <span className='text-gray-600 text-sm'>Support Only .yaml or .yml Files</span>
-              </div>
-                  )}
+                <div className='w-full relative mt-5 overflow-hidden bg-blue-50 text-center border-4 border-dotted border-blue-300'>
+                    {uploadStatus? 
+ <div className='hidden w-full h-full absolute bg-red-50 z-50'>
+ Hello
+</div>: 
+' '
+                    }
+                   
+                    <Dropzone
+                        onChangeStatus={handleChangeStatus}
+                        maxFiles={1}
+                        multiple={false}
+                        canCancel={true}
+                        styles={{
+                            dropzone: { overflow: 'hidden', zIndex: 0 },
+                            dropzoneActive: { borderColor: 'green' },
+                        }}
+                        inputContent={(files, extra) => (extra.reject ? 'YAML files only' :
+                            <div className='py-10'>
+                                <div>
+                                    <FcFile className="mx-auto w-8 h-8 p-1 rounded-md bg-blue-100" />
+                                </div>
+                                <h1 className='text-md font-semibold'>Drag and Drop File, or <span className='text-blue-500'>Browse</span></h1>
+                                <span className='text-gray-600 text-sm'>Support Only .yaml or .yml Files</span>
+                            </div>
+                        )}
 
-    />
-              
+                    />
+
 
                 </div>
 

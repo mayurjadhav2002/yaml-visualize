@@ -27,7 +27,7 @@ function page() {
     
     <div className="p-4">
     
-      <Projects/>
+      <Projects user={user}/>
       </div>
     
       </div>

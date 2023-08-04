@@ -24,8 +24,8 @@ const upload = multer({storage: storage});
 const yaml_controller = require('../controllers/yamlController');
 
 // File Upload Route '/api/file/upload/' required data = {user, file, header['Authorization']/token}
-yaml_visulizer_route.post('/upload', auth, upload.single('file'), yaml_controller.file_upload);
-yaml_visulizer_route.post('/demo_upload', upload.single('file'), yaml_controller.file_upload);
+yaml_visulizer_route.post('/upload', auth, upload.single('file'), yaml_controller.new_project);
+// yaml_visulizer_route.post('/demo_upload', upload.single('file'), yaml_controller.file_upload);
 
 
 module.exports = yaml_visulizer_route

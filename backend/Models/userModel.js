@@ -21,25 +21,13 @@ const userSchema = mongoose.Schema({
         type: String,
         default: ''
     },
-   
     image: {
         type: String,
         required: false,
         default: "avatar.png"
     },
-    role: {
-        type: String,
-        enum: ["user", "admin"],
-        default: "user"
-    },
-    verification_token: {
-        type: String,
-        default: ''
-    },
-    password_reset_token:{
-        type:String,
-        default: ''
-    },
+ 
+ 
     created_on: {
         type: Date,
         default: Date.now()

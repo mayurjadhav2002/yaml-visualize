@@ -8,5 +8,7 @@ user_route.use(bodyParser.urlencoded({extended:true}));
 
 user_route.post('/register', user_controller.register_new_user);
 user_route.post('/login', user_controller.signin)
-
+user_route.get('/hello', (req,res)=>{
+    res.send("hello World")
+})
 module.exports = user_route
