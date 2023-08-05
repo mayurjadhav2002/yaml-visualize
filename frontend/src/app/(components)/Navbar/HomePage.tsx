@@ -1,17 +1,14 @@
-'use client'
-import React from 'react'
-import Account from './account'
 import Link from 'next/link'
+import React from 'react'
 
-
-function Navbar() {
+function HomePage() {
   return (
     <div>
-      <header className="bg-white border-b-2 border-gray-100">
+         <header className="bg-white border-b-2 border-gray-100">
         <div
           className="mx-auto flex h-16 items-center gap-8 px-4 sm:px-6 lg:px-8"
         >
-          <Link className="block text-blue-600" href="/">
+                  <Link className="block text-blue-600" href="/">
            <h3 className='text-lg font-bold'>YAML visualizer</h3>
         
           </Link>
@@ -19,21 +16,15 @@ function Navbar() {
           <div className="flex flex-1 items-center justify-end md:justify-between">
             <nav aria-label="Global" className="hidden md:block">
               <ul className="flex items-center gap-6 text-sm">
-              <li>
-                  <Link href={'/dashboard'} className="text-gray-500 transition hover:text-gray-500/75">
-                    Dashboard
-
-                  </Link>
-                </li>
                 <li>
-                  <Link className="text-gray-500 transition hover:text-gray-500/75" href={'/how-to-guide'}>
+                  <Link className="text-gray-500 transition hover:text-gray-500/75" href={'/Helper/how-to-guide'}>
                     How to Use
                   </Link>
                 </li>
                 <li>
-                  <a className="text-gray-500 transition hover:text-gray-500/75" href={'/documentation'}>
+                  <Link className="text-gray-500 transition hover:text-gray-500/75" href={"/Helper/documentation"}>
                     Guide
-                  </a>
+                  </Link>
                 </li>
 
               </ul>
@@ -41,7 +32,7 @@ function Navbar() {
 
             <div className="flex items-center gap-4">
               <div className="sm:flex sm:gap-4">
-<Account/>
+
               </div>
 
               <button
@@ -72,4 +63,4 @@ function Navbar() {
   )
 }
 
-export default Navbar
+export default HomePage

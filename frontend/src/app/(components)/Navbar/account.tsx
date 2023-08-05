@@ -2,7 +2,29 @@
 import React from 'react'
 import { Menu, Transition } from '@headlessui/react'
 import {BiCaretDown} from 'react-icons/bi'
+
+
+// Get User Data
+if (typeof window !== 'undefined') {
+  var user = localStorage.getItem('user');
+  if (user) {
+      user = JSON.parse(user);
+      console.log(user)
+  } else {
+    window.location.href = '/authentication/login';
+
+  }
+}
+
+
 function Account(){
+  const handleLogout = ()=>{
+    localStorage.removeItem('user')
+    user= null;
+
+    // navigate('/login')
+    window.location.href = 'http://localhost:3000/authentication/login';
+  }
   return (
     <>
     <div>
@@ -12,9 +34,11 @@ function Account(){
            bg-blue-300 bg-opacity-20 px-4 py-2 text-sm font-medium hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 
            focus-visible:ring-white focus-visible:ring-opacity-75">
             <div className='flex gap-1 items-center'>
-                <img className='w-7 h-7 rounded-full' src="https://cdn.dribbble.com/users/4140236/avatars/small/6cbadf52cbb7698f5897d5d288e6f4a7.jpg" alt="" />
+                <img className='w-7 h-7 rounded-full'
+              
+                 src={process.env.NEXT_PUBLIC_IMAGE_URL+ '/avatar.png'} alt="" />
                 <div className='text-left'>
-                    <span>Mayur Jadhav</span>
+                    <span>{user.first_name} {user.last_name}</span>
                 </div>
             </div>
             <div>
@@ -42,9 +66,9 @@ function Account(){
                     className={`${
                       active ? 'bg-violet-500 text-white' : 'text-gray-900'
                     } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
-                  >
+                  disabled >
                    
-                    Edit
+                    Profile
                   </button>
                 )}
               </Menu.Item>
@@ -52,51 +76,16 @@ function Account(){
                 {({ active }) => (
                   <button
                     className={`${
-                      active ? 'bg-violet-500 text-white' : 'text-gray-900'
-                    } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
-                  >
+                      active ? 'bg-violet-500  text-white' : 'text-gray-900'
+                    } group cursor-not-allowed bg-gray-50 flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                 disabled >
                
-                    Duplicate
+                    Settings
                   </button>
                 )}
               </Menu.Item>
             </div>
-            <div className="px-1 py-1">
-              <Menu.Item>
-                {({ active }) => (
-                  <button
-                    className={`${
-                      active ? 'bg-violet-500 text-white' : 'text-gray-900'
-                    } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
-                  >
-                    {/* {active ? (
-                      <ArchiveActiveIcon
-                        className="mr-2 h-5 w-5"
-                        aria-hidden="true"
-                      />
-                    ) : (
-                      <ArchiveInactiveIcon
-                        className="mr-2 h-5 w-5"
-                        aria-hidden="true"
-                      />
-                    )} */}
-                    Archive
-                  </button>
-                )}
-              </Menu.Item>
-              <Menu.Item>
-                {({ active }) => (
-                  <button
-                    className={`${
-                      active ? 'bg-violet-500 text-white' : 'text-gray-900'
-                    } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
-                  >
-                  
-                    Move
-                  </button>
-                )}
-              </Menu.Item>
-            </div>
+            
             <div className="px-1 py-1">
               <Menu.Item>
                 {({ active }) => (
@@ -104,9 +93,9 @@ function Account(){
                     className={`${
                       active ? 'bg-red-500 text-white' : 'text-gray-900'
                     } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
-                  >
+               onClick={handleLogout}    >
               
-                    Delete
+                    Log out
                   </button>
                 )}
               </Menu.Item>

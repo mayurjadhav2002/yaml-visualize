@@ -5,6 +5,9 @@ import { loginUser } from '../../../Axios/store/UserSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { Label, TextInput } from 'flowbite-react';
 import { useRouter } from 'next/navigation';
+import { toast, ToastContainer } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
+
 function page() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -22,21 +25,32 @@ function page() {
           email, password
       }
       // dispatching data to hooks in Axios folder
-      dispatch(loginUser({userCredential})).then((result:any) => {
+      dispatch(loginUser({userCredential})).then((result:any)=> {
           if (result.payload) {
+            toast.success("Logged In! Redirecting to Dashboard", {
+                position: toast.POSITION.BOTTOM_LEFT
+              });
               setEmail('');
               setPassword('');
               router.replace('/dashboard')
             }
-      });
+            else{
+              toast.error("Please Check your Credentials Again", {
+                position: toast.POSITION.BOTTOM_LEFT
+              });
+            }
+      })
   }
 
 
   return (
     <div>
-      <div className='grid lg:grid-cols-2 grid-cols-1 justify-center'>
+                <ToastContainer />
+
+      <div className='grid lg:grid-cols-2 grid-cols-1 justify-center items-center'>
         {/* First Column */}
-          <div className=' hidden lg:block w-full bg-blue-50 h-screen'>
+          <div className='hidden lg:block w-fullh-auto items-center'>
+            <img src={'https://i.postimg.cc/SKSqJ3bj/undraw-Login-re-4vu2.png'} alt="Image" className='my-auto' />
         </div>
           
           
@@ -101,12 +115,19 @@ function page() {
               Don't Have an Account? <Link href="/authentication/register"
                className='text-md lg:text-md text-blue-600 hover:underline'>Sign Up Now...</Link></p>
           </div>
+          <div className='mt-5'>
+        <p className='font-semibold'>For demo:</p>
+        <p>email: demo@gmail.com</p>
+        <p>password: demo</p>
+      </div>
         </form>
+        
         {/* Form Ends */}
 
       
 
       </div>
+ 
     </div>
   )
 }

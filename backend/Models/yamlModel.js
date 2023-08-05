@@ -34,6 +34,9 @@ const FileSchema = mongoose.Schema({
    isDeleted: {
       type: Boolean,
       default: 0
+   },
+   aws_url: {
+      type:String
    }
 
 }, { timestamps: true });

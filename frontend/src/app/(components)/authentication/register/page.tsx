@@ -4,6 +4,7 @@ import { Label, TextInput } from 'flowbite-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useState } from 'react'
+import {toast, ToastContainer } from 'react-toastify';
 
 function page() {
   const [email, setEmail] = useState('');
@@ -27,10 +28,16 @@ function page() {
       const result = await axios.post(url, body);
       if (result) {
         console.log(result)
+        toast.success("Account Created, Now please Login !", {
+          position: toast.POSITION.BOTTOM_LEFT
+        });
+        window.location.href= '/authentication/login'
+
         setloading(false)
       } else {
         setError('error occured')
       }
+
     } catch (error) {
       console.log("Error", error)
       alert("Some Internal error occured")
@@ -39,6 +46,7 @@ function page() {
   // console.log(status)
   return (
     <div>
+          <ToastContainer />
 
       <div className='grid lg:grid-cols-2 grid-cols-1 justify-center'>
         {/* First Column */}

@@ -28,4 +28,18 @@ yaml_visulizer_route.post('/upload', auth, upload.single('file'), yaml_controlle
 // yaml_visulizer_route.post('/demo_upload', upload.single('file'), yaml_controller.file_upload);
 
 
+// Get Project By ID
+yaml_visulizer_route.get('/projects', auth, yaml_controller.get_project);
+
+// Delete Project BY ID
+yaml_visulizer_route.put("/delete", auth, yaml_controller.delete_project)
+
+
+// 
+yaml_visulizer_route.get('/project_by_id', auth, yaml_controller.get_project_by_id);
+
+
+yaml_visulizer_route.put("/update_project_name", auth, yaml_controller.updateTitle)
+
+
 module.exports = yaml_visulizer_route
