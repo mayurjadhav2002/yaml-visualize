@@ -22,7 +22,6 @@ export default function Page({ params }: { params: { id: string } }) {
       document.title = "Application"; // Set a default title if project data doesn't have it
     }
   }, [project]);
-
   return (
     <div>
       <Head>
@@ -31,7 +30,7 @@ export default function Page({ params }: { params: { id: string } }) {
       <div className="w-full h-screen">
         <div className="z-10 absolute w-full">
           <Navbar />
-          <Submenu id={params.id} projectData={project?.data?.project_name} />
+          <Submenu id={params.id} projectData={project?.data} />
         </div>
         <div className="z-0 w-screen h-screen">
           {loading ? (

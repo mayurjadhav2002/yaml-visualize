@@ -1,17 +1,17 @@
 'use client'
 import Link from 'next/link';
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { loginUser } from '../../../Axios/store/UserSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { Label, TextInput } from 'flowbite-react';
 import { useRouter } from 'next/navigation';
 import { toast, ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
+import Head from 'next/head';
 
 function page() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const { loading, error } = useSelector((state:any) => state.user)
   const dispatch = useDispatch<any>();
   const router = useRouter()
 
@@ -41,10 +41,18 @@ function page() {
             }
       })
   }
+  useEffect(() => {
+
+    document.title = "Login";
+
+}, []);
 
 
   return (
     <div>
+      <Head>
+        <title>Login</title>
+      </Head>
                 <ToastContainer />
 
       <div className='grid lg:grid-cols-2 grid-cols-1 justify-center items-center'>

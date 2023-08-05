@@ -1,0 +1,59 @@
+id: 0
+name: My Entity
+children:
+  - id: 1
+    name: MARKET
+    children:
+      - id: 2
+        name: Sales
+        children:
+          - id: 3
+            name: District 1
+            children:
+              - id: 5
+                name: Area 1
+                children:
+                  - entityId: 30
+                    id: 26
+                    name: Mumbai
+                    num: 100
+                  - entityId: 31
+                    id: 27
+                    name: Hyderabad
+                    num: 50
+              - id: 6
+                name: Area 2
+                children:
+                  - entityId: 32
+                    id: 28
+                    name: Karnataka
+                    num: 75
+                  - entityId: 33
+                    id: 29
+                    name: Andhra Pradesh
+                    num: 80
+          - id: 4
+            name: District 2
+            children:
+              - id: 7
+                name: Area 3
+                children:
+                  - entityId: 34
+                    id: 30
+                    name: Delhi
+                    num: 120
+                  - entityId: 35
+                    id: 31
+                    name: Jaipur
+                    num: 90
+              - id: 8
+                name: Area 4
+                children:
+                  - entityId: 36
+                    id: 32
+                    name: Punjab
+                    num: 65
+                  - entityId: 37
+                    id: 33
+                    name: Haryana
+                    num: 70

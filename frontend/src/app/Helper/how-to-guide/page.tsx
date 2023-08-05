@@ -1,10 +1,10 @@
-import HomePage from '@/app/(components)/Navbar/HomePage'
+import Nav from '@/app/(components)/landing/Nav'
 import React from 'react'
 
 function page() {
   return (
     <div>
-       <HomePage/>
+       <Nav/>
        
        <div className="max-w-2xl mx-auto  py-8">
 
@@ -13,16 +13,21 @@ function page() {
   <h2 className="text-xl font-bold mt-4 mb-2">Step 1: Login or Register</h2>
   <p className="text-gray-600 mb-6">
     To use the YAML visualizer, first, the user needs to either log in or register on the platform. If the user already has an account, they can log in using their credentials. Otherwise, they can register by providing the required information.
+    <img src={'https://i.postimg.cc/KcJvXtwt/scrnli-8-5-2023-10-22-57-PM.png'} />
   </p>
 
   <h2 className="text-xl font-bold mt-4 mb-2">Step 2: Drag and Drop YAML File</h2>
   <p className="text-gray-600 mb-6">
     Once the user is logged in or registered, they will be directed to the main dashboard. In the dashboard, there will be an area where the user can drag and drop their YAML file. Alternatively, there will be an option to browse and select the YAML file from their local storage.
+    <img src={'https://i.postimg.cc/nhsv9FBw/Screenshot-2023-08-05-222713.png'} />
+
   </p>
 
   <h2 className="text-xl font-bold mt-4 mb-2">Step 3: Visualizer</h2>
   <p className="text-gray-600 mb-6">
     After uploading the YAML file, the user will be redirected to the YAML visualizer page. In this visualizer, the hierarchical representation of the YAML file will be displayed. The visualizer will show the nested structure of the YAML data in a user-friendly manner.
+    <img src={'https://i.postimg.cc/YSzjhZns/scrnli-8-5-2023-10-29-26-PM.png'} />
+
   </p>
 
   <h2 className="text-xl font-bold mt-4 mb-2">Step 4: Interact with Visualizer</h2>
@@ -33,6 +38,8 @@ function page() {
   <h2 className="text-xl font-bold mt-4 mb-2">Step 5: Export and Share</h2>
   <p className="text-gray-600 mb-6">
     To export the hierarchical visualization, the user can click on the action button in the visualizer. This action button will present options to export the visualization as PNG, PDF, or to share a link to the visualization with others. If the user chooses to export as PNG or PDF, the visualizer will generate the respective file format and provide a download link. If the user chooses to share a link, the visualizer will generate a unique URL that can be shared with others. This link will allow others to view the same YAML visualization.
+    <img src={'https://i.postimg.cc/y8BDs7nZ/Screenshot-2023-08-05-223101.png'} />
+
   </p>
 
   <h2 className="text-xl font-bold mt-4 mb-2">Demo Login Code (For Testing Purpose)</h2>

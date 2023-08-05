@@ -131,7 +131,6 @@ export const ReactFlowFunction = ({data}) => {
         onNodesChange={onNodesChange}
         onEdgesChange={onEdgesChange}
         onConnect={(connection) => setEdges([...edges, connection])} // Update edges on connect
-
         nodesDraggable={true}
         zoomOnScroll={true}
         onNodeClick={nodeClick}

@@ -28,7 +28,7 @@ export default function projects() {
     const {
         projects,
         loading, getData
-    } = UserProjects(`/api/file/projects?user=64c7cf3b1370ccd6fef6b0ab`);
+    } = UserProjects(`/api/file/projects?user=${user._id}`);
     // File Upload 
     // called every time a file's `status` changes
     // const handleChangeStatus = ({file}) => { 

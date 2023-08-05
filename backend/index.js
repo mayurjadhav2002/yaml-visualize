@@ -5,6 +5,8 @@ require('dotenv').config()
 const port = process.env.PORT;
 const userRoutes = require('./routes/userRoute')
 const yamlRoutes = require('./routes/yamlVisulizerRoute')
+const shareRoutes = require('./routes/shareRoute')
+
 const app = express();
 app.use(cors());
 app.use('/static', express.static(__dirname + '/public'));
@@ -15,7 +17,6 @@ mongoose.connect(`${process.env.MONGO_URL}`)
 mongoose.connection.on('connected', function () {
     console.log('Connected to Database');
 });
-
 // If the connection throws an error
 mongoose.connection.on('error', function (err) {
     console.log('Mongoose default connection error: ');
@@ -35,6 +36,8 @@ app.use('/api', userRoutes)
 // File Upload Routes
 app.use('/api/file', yamlRoutes)
 
+// Share URL Create
+app.use('/api/share', shareRoutes)
 
 app.listen(port, () => console.log(`Connected to port: ${port}`));
 

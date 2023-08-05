@@ -45,7 +45,7 @@ export default function UploadFile({ user }) {
 
           // Redirect to another URL once the file is uploaded successfully
           // Replace "YOUR_REDIRECT_URL" with the desired URL
-          window.location.href =  'app/'+response.data.res.unique_key;
+          window.location.href =  '/app/'+response.data.res.unique_key;
         }
       } catch (error) {
         console.error('Error uploading file:', error);

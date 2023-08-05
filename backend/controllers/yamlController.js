@@ -190,6 +190,20 @@ const get_project_by_id = async (req, res) => {
     }
 }
 
+const get_project_by_view_id = async (req, res) => {
+    try {
+        const unique = req.body.unique_key || req.query.unique_key;
+        const data = await YAML.findOne({unique_key: unique});
+        if (data) {
+            res.send({ data: data })
+        } else {
+            res.send({ msg: "Failed to send the data" })
+        }
+    } catch (error) {
+
+    }
+}
+
 
 
 // Update the title of Project
@@ -214,4 +228,4 @@ const updateTitle = async (req, res) => {
 
 
 
-module.exports = { new_project, get_project, delete_project, get_project_by_id, updateTitle }
+module.exports = { new_project, get_project, delete_project, get_project_by_id, updateTitle, get_project_by_view_id }

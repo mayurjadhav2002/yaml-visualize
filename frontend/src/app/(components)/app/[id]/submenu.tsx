@@ -1,5 +1,5 @@
 'use client'
-import { Dropdown, Toast } from 'flowbite-react'
+import { Button, Dropdown, Label, Modal, TextInput, Toast } from 'flowbite-react'
 import React, { useState, useEffect, useRef} from 'react'
 import {SiPolymerproject} from 'react-icons/si'
 import {FcLink, FcDownload, FcImageFile} from 'react-icons/fc'
@@ -10,6 +10,7 @@ import html2canvas from 'html2canvas'
 import JsPDF from 'jspdf';
 import { toast, ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
+const download = require("downloadjs");
 
 
 // Get User Data
@@ -26,7 +27,10 @@ if (typeof window !== 'undefined') {
   
 
   function Submenu({ id, projectData }) {
-    const [projectName, setProjectName] = useState(projectData || null);
+    const [projectName, setProjectName] = useState(projectData?.project_name || null);
+    const [url, setURL] = useState(null)
+    const [openModal, setOpenModal] = useState<string | undefined>();
+    const props = { openModal, setOpenModal };
     // Project Name Change
     const handleProjectNameChange = (e:any) => {
         setProjectName(e.target.value);
@@ -86,11 +90,27 @@ if (typeof window !== 'undefined') {
 
 
 const HandleShare = async(e:any) =>{
-    toast("Custom Style Notification with css class!", {
+    props.setOpenModal('dismissible')
+    toast("Generating Share Link....", {
         position: toast.POSITION.BOTTOM_RIGHT,
         className: 'foo-bar'
       });
-
+      const body = {
+        original_url:process.env.NEXT_PUBLIC_APP_URL+'/s/'+id
+      }
+      const request = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/share`, body)
+      try{
+        if(request) {
+            toast("Created New Share Link....", {
+                position: toast.POSITION.BOTTOM_RIGHT,
+                className: 'foo-bar'
+              });
+              console.log(request)
+              setURL(request.data.res.shortID)
+        }
+      }catch(e){
+        console.log(e)
+      }
 }
 // Handling Delete Button
 
@@ -199,7 +219,11 @@ const HandleYAMLDownload = async(e:any) =>{
 <Dropdown.Item icon={FcLink} onClick={HandleShare}>
     Share
 </Dropdown.Item>
-<Dropdown.Item icon={FcDownload} onClick={HandleYAMLDownload}>
+<Dropdown.Item icon={FcDownload}  onClick={async () => {
+          const res = await fetch('http://localhost:3080/api/file/download',{filename:projectData?.filename });
+          const blob = await res.blob();
+          download(blob,projectData?.filename);
+        }}>
     Download yaml file
 </Dropdown.Item>
 <Dropdown.Item icon={PiFilePdf} onClick={HandleExportasPDF}>
@@ -216,8 +240,47 @@ Delete
     </Dropdown>
     </div>
         </div>
-                 <ToastContainer autoClose={1000} />
+                 <ToastContainer autoClose={2000} className='z-20'/>
 
+
+
+{url && (
+       <Modal className='absolute z-10' dismissible show={props.openModal === 'dismissible'} onClose={() => props.setOpenModal(undefined)}>
+        <div>
+            <Modal.Header>
+            <h1 className='text-lg font-bold'>Share URL</h1>
+
+            </Modal.Header>
+         <Modal.Body>
+           <div className="space-y-2 px-5 pb-5">
+           <div className="w-full my-1">
+           <div className="relative">
+    
+        <input type="search" id="search" className="block w-full p-4 text-sm text-gray-900 cursor-not-allowed border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 
+        dark:border-gray-600 dark:placeholder-gray-400 dark:text-white
+         dark:focus:ring-blue-500 dark:focus:border-blue-500" value={`${process.env.NEXT_PUBLIC_APP_URL}/v/${url}`||'hIi'} disabled/>
+        <button type="button" 
+        className="text-white absolute right-2.5 bottom-2.5 bg-blue-700
+         hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2
+          dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"   
+          onClick={() => {navigator.clipboard.writeText(`${process.env.NEXT_PUBLIC_APP_URL}/v/${url}`);
+          toast.success("Copied text to Clipboard !", {
+            position: toast.POSITION.BOTTOM_RIGHT
+          })
+        }}
+          >Copy to Clipboard</button>
+    </div>
+    </div>
+    <p>Copy the Above generated URL and Share with your Friends, Collaborators, Collegues or Teammates!</p>
+          <p>No need of login to view the Mind Map</p>
+           </div>
+
+         </Modal.Body>
+      
+        </div>
+         
+       </Modal>
+)}
     </div>
   )
 }

@@ -1,9 +1,9 @@
 'use client'
 import axios from 'axios';
 import { Label, TextInput } from 'flowbite-react';
-import Image from 'next/image';
+import Head from 'next/head';
 import Link from 'next/link';
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import {toast, ToastContainer } from 'react-toastify';
 
 function page() {
@@ -43,12 +43,23 @@ function page() {
       alert("Some Internal error occured")
     }
   }
+  
   // console.log(status)
+  useEffect(() => {
+
+    document.title = "Register";
+
+}, []);
+
   return (
+    
     <div>
+           <Head>
+        <title>Register</title>
+      </Head>
           <ToastContainer />
 
-      <div className='grid lg:grid-cols-2 grid-cols-1 justify-center'>
+      <div className='grid lg:grid-cols-2 grid-cols-1 justify-center items-center'>
         {/* First Column */}
         <div className='m-auto w-full lg:p-28  p-10 justify-center'>
           <div className='w-full py-5 -mt-10'>
@@ -151,7 +162,11 @@ function page() {
         {/* Form Ends */}
 
         {/* Second Column */}
-        <div className=' hidden lg:block w-full bg-blue-50 h-screen'>
+        <div className=' hidden lg:block w-full bg-cyan-50 rounded-s-3xl'>
+          <img
+          src={'https://svgshare.com/i/wBt.svg'}
+
+          />
         </div>
 
       </div>

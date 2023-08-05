@@ -1,10 +1,10 @@
-import HomePage from '@/app/(components)/Navbar/HomePage'
+import Nav from '@/app/(components)/landing/Nav'
 import React from 'react'
 
 function page() {
   return (
     <div>
-       <HomePage/>
+       <Nav/>
       <div className="max-w-2xl mx-auto py-8">
   <h2 className="text-2xl font-bold mb-4">Step 1: Login or Register</h2>
   <p className="text-gray-600 mb-6">
