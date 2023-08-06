@@ -7,8 +7,9 @@ import GetProject from "@/app/Axios/Requests/GetProject";
 import Head from "next/head";
 import { ReactFlowFunction } from "./reactFlow";
 
-export default function Page({ params }: { params: { id: string } }) {
+export default function Page({ params }) {
   const { project, loading, getData } = GetProject("?unique_key=" + params.id);
+
   const data = {
     nodes: project?.data?.nodes || [],
     edges: project?.data?.edges || []

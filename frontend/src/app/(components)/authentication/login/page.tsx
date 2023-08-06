@@ -9,7 +9,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 import Head from 'next/head';
 
-function page() {
+function Page() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch<any>();
@@ -120,7 +120,7 @@ function page() {
           {/* Other Links */}
           <div className='pt-10'>
             <p className='text-md bottom-0 lg:text-sm text-gray-600'>
-              Don't Have an Account? <Link href="/authentication/register"
+              Don&apos;t Have an Account? <Link href="/authentication/register"
                className='text-md lg:text-md text-blue-600 hover:underline'>Sign Up Now...</Link></p>
           </div>
           <div className='mt-5'>
@@ -140,4 +140,4 @@ function page() {
   )
 }
 
-export default page
+export default Page

@@ -8,7 +8,7 @@ if (typeof window !== 'undefined') {
 }
 
 function GetProject(param) {
-    const [project, setProject] = useState([]);
+    const [project, setProject] = useState();
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState();
 

@@ -6,20 +6,11 @@ import Projects from './projects'
 import UploadFile from './uploadFile'
 import DashboardLoad from '../../loadings/DashboardLoad'
 import Head from 'next/head';
-if (typeof window !== 'undefined'){
-  var user = localStorage.getItem('user');
-  if (user) {
-    user = JSON.parse(user);
-    console.log(user)
-  } else {
-  
-  } 
-}
 
 
 
 
-function page() {
+function Page() {
 
   useEffect(() => {
 
@@ -50,4 +41,4 @@ function page() {
   )
 }
 
-export default page
+export default Page

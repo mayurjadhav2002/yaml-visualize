@@ -14,17 +14,17 @@ function page() {
 <ul className='space-y-1 text-gray-500 list-disc list-inside dark:text-gray-400'>
   <li>Each element should be represented as an object in the YAML file.
 </li>
-<li>Each element should have a unique "id" property, which aligns with its name.
+<li>Each element should have a unique &quot;id&quot; property, which aligns with its name.
 </li>
-  <li>Each element object should have a "name" property, which holds the name of the element.
+  <li>Each element object should have a &quot;name&quot; property, which holds the name of the element.
 </li>
-<li>If an element has child elements, they should be represented as an array of objects under the "children" property.</li>
+<li>If an element has child elements, they should be represented as an array of objects under the &quot;children property.</li>
 
 
   <li>The structure of the YAML file should be hierarchical, representing the parent-child relationships of elements.
 </li>
 
-<li><strong>The root element should not contain a hyphen ("-") at the start, unlike other child elements, to distinguish it as the top-level element.
+<li><strong>The root element should not contain a hyphen (&quot;-&quot;) at the start, unlike other child elements, to distinguish it as the top-level element.
 
 
 

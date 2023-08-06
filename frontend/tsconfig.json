@@ -23,6 +23,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/(components)/app/[id]/reactFlow.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/(components)/app/[id]/reactFlow.tsx", "src/app/(components)/app/[id]/page.jsx"],
   "exclude": ["node_modules"]
 }

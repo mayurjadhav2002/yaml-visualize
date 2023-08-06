@@ -9,11 +9,11 @@ const ProjectDocumentation = () => {
       <ol className="list-decimal ml-8">
         <li>Clone the repository from <a href="https://github.com/mayurjadhav2002/yaml-visualize" target="_blank"
             className="text-blue-500 hover:underline">https://github.com/mayurjadhav2002/yaml-visualize</a></li>
-        <li>Open a terminal and navigate to the "backend" directory</li>
-        <li>Run "npm install" to install the backend dependencies</li>
-        <li>Return to the root directory and navigate to the "frontend" directory</li>
-        <li>Run "npm install" to install the frontend dependencies</li>
-        <li>Create a .env file in the "backend" directory and add the following variables:
+        <li>Open a terminal and navigate to the &quot;backend&quot; directory</li>
+        <li>Run &quot;npm install&quot; to install the backend dependencies</li>
+        <li>Return to the root directory and navigate to the &quot;frontend&quot; directory</li>
+        <li>Run &quot;npm install&quot; to install the frontend dependencies</li>
+        <li>Create a .env file in the &quot;backend&quot; directory and add the following variables:
           <pre className="bg-black  text-white p-2 mt-2">
             PORT=3080 <br></br>
             MONGO_URL=mongo_url<br></br>
@@ -22,7 +22,7 @@ const ProjectDocumentation = () => {
             AWS_BUCKET_NAME=bucket name
           </pre>
         </li>
-        <li>Open the .env file in the "frontend" directory and add the following variable:
+        <li>Open the .env file in the &quot;frontend&quot; directory and add the following variable:
           <pre className="bg-black  text-white p-2 mt-2">NEXT_PUBLIC_BACKEND_URL=http://localhost:3080<br></br>
 NEXT_PUBLIC_IMAGE_URL=http://localhost:3080/static/avatar<br></br>
 NEXT_PUBLIC_APP_URL=http://localhost:3000</pre>
@@ -31,8 +31,8 @@ NEXT_PUBLIC_APP_URL=http://localhost:3000</pre>
 
       <h2 className="text-xl font-semibold mt-6">Starting the Project</h2>
       <ol className="list-decimal ml-8">
-        <li>Go to the "backend" directory and run <pre className='bg-black p-2 text-white my-2'>nodemon index.js</pre></li>
-        <li>Go to the "frontend" directory and run <pre className='bg-black p-2 text-white my-2'>npm run dev</pre></li>
+        <li>Go to the &quot;backend&quot; directory and run <pre className='bg-black p-2 text-white my-2'>nodemon index.js</pre></li>
+        <li>Go to the &quot;frontend&quot; directory and run <pre className='bg-black p-2 text-white my-2'>npm run dev</pre></li>
       </ol>
 
       <h2 className="text-xl font-semibold mt-6">Usage</h2>

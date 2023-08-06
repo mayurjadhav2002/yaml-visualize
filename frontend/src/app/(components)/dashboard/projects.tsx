@@ -9,15 +9,19 @@ import 'react-dropzone-uploader/dist/styles.css'
 import moment from 'moment'
 import Head from 'next/head'
 // import { useRouter } from 'next/router'
-if (typeof window !== 'undefined') {
-    var user = localStorage.getItem('user');
-    if (user) {
-        user = JSON.parse(user);
-        // console.log(user)
-    } else {
 
-    }
+var user = ['none']
+try{
+    user = JSON.parse(localStorage.getItem('user'));
+
+}catch(e){
+    console.log("no user found")
+}finally{
+user[0] = "None"
 }
+
+
+
 
 
 export default function projects() {
@@ -46,7 +50,7 @@ export default function projects() {
                 <div className="grid lg:grid-cols-5 gap-4 grid-cols-2 my-3">
                     {/* card starts */}
                     {projects.map((data)=> (
-                             <Link href={`/app/${data.unique_key}`} className='card  w-full h-auto p-1 cursor-pointer hover:shadow-xl rounded-lg'>
+                             <Link key={data._id} href={`/app/${data.unique_key}`} className='card  w-full h-auto p-1 cursor-pointer hover:shadow-xl rounded-lg'>
                              <div className='group img w-5/6 relative bg-gray-50 mx-auto h-40 rounded-lg'>
                              
                              <SiYaml className=" absolute mt-8 p-2 rounded-full w-8 h-8 bg-blue-200  ml-7"/>
