@@ -15,7 +15,7 @@ function page() {
   const [loading, setloading] = useState(false)
   const [status, setStatus] = useState(0);
 
-  const url = 'http://192.168.0.105:3080/api/register';
+  const url = `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/register`;
   const handleSubmit = async () => {
     const body = {
       "first_name": firstname,

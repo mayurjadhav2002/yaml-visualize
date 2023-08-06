@@ -50,8 +50,17 @@ yaml_visulizer_route.get("/share", yaml_controller.get_project_by_view_id)
 // Download route to download the file
 yaml_visulizer_route.get('/download', (req, res, next) => {
     try {
-      const file = path.join(__dirname, '..',`/public/yaml/` + (req.body.filename || req.query.filename));
-      res.download(file);
+      
+      try{
+        // if file not exists
+        const file = path.join(__dirname, '..',`/public/yaml/` + (req.body.filename || req.query.filename));
+        res.download(file);
+      }catch(error){
+        console.log(error)
+      }finally{
+        res.send({msg:"File not exists"})
+      }
+     
     } catch (err) {
       console.log(err);
     }

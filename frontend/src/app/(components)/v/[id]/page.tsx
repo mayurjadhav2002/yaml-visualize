@@ -5,7 +5,7 @@ import Loading from './loading'
 const Page = ({ params }) => {
   const fetchData = async () => {
     try {
-      const response = await axios.get(`http://localhost:3080/api/share/url/?short_id=${params.id}`);
+      const response = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/share/url?short_id=${params.id}`);
 
       if (response.data && response.data.data.origin_url) {
         window.location.href = response.data.data.origin_url;
