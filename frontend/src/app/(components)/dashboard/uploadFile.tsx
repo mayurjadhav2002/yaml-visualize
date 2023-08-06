@@ -107,9 +107,10 @@ export default function UploadFile({ user }) {
       <h1 className='text-lg font-bold mt-10 mb-2'>Download the Demo YAML Files below</h1>
       <div className='flex gap-2'>
       
+     
       <Button color="success" className="bg-green-800 mr-3"   
       onClick={async () => {
-                const res = await fetch(`${process.env.NEXT_APP_BACKEND_URL}/api/file/download`, { filename: 'Alphabets.yaml' });
+                const res = await fetch(`${process.env.NEXT_APP_BACKEND_URL}/static/yaml/Alphabets.yaml`);
                 const blob = await res.blob();
                 download(blob, 'Alphabets.yaml');
                 toast.success('File Downloded', {
@@ -121,7 +122,7 @@ export default function UploadFile({ user }) {
       </Button> 
       <Button color="success" className="bg-blue-800 mr-3"
         onClick={async () => {
-          const res = await fetch(`${process.env.NEXT_APP_BACKEND_URL}/api/file/download`, { filename: 'Enginnering.yaml' });
+          const res = await fetch(`${process.env.NEXT_APP_BACKEND_URL}/static/yaml/Enginnering.yaml`);
           const blob = await res.blob();
           download(blob, 'Enginnering.yaml');
           toast.success('File Downloded', {
@@ -134,7 +135,7 @@ export default function UploadFile({ user }) {
       </Button> 
       <Button color="success" className="bg-violet-800 mr-3"
         onClick={async () => {
-          const res = await fetch(`${process.env.NEXT_APP_BACKEND_URL}/api/file/download`, { filename: 'github_commit.yaml' });
+          const res = await fetch(`${process.env.NEXT_APP_BACKEND_URL}/static/yaml/github_commit.yaml`);
           const blob = await res.blob();
           download(blob, 'github_commit.yaml');
           toast.success('File Downloded', {
@@ -147,7 +148,7 @@ export default function UploadFile({ user }) {
       </Button> 
       <Button color="success" className="bg-gray-800 mr-3"
         onClick={async () => {
-          const res = await fetch(`${process.env.NEXT_APP_BACKEND_URL}/api/file/download`, { filename: 'Grandfather.yaml' });
+          const res = await fetch(`${process.env.NEXT_APP_BACKEND_URL}/static/yaml/Grandfather.yaml`);
           const blob = await res.blob();
           download(blob, 'Grandfather.yaml');
           toast.success('File Downloded', {
@@ -160,7 +161,7 @@ export default function UploadFile({ user }) {
       </Button> 
       <Button color="success" className="bg-red-800 mr-3"
         onClick={async () => {
-          const res = await fetch(`${process.env.NEXT_APP_BACKEND_URL}/api/file/download`, { filename: 'company.yaml' });
+          const res = await fetch(`${process.env.NEXT_APP_BACKEND_URL}/static/yaml/company.yaml`);
           const blob = await res.blob();
           download(blob, 'company.yaml');
           toast.success('File Downloded', {
