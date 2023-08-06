@@ -7,9 +7,38 @@ function page() {
        <Nav/>
        
        <div className="max-w-2xl mx-auto  py-8">
+<h1 className='text-3xl font-bold mt-4 text-center'>How to Use?</h1>
+<h2 className="text-xl font-bold mt-4 mb-2">Prerequisite - YAML file</h2>
+<p className="text-gray-600 mb-6">
+
+<ul className='space-y-1 text-gray-500 list-disc list-inside dark:text-gray-400'>
+  <li>Each element should be represented as an object in the YAML file.
+</li>
+<li>Each element should have a unique "id" property, which aligns with its name.
+</li>
+  <li>Each element object should have a "name" property, which holds the name of the element.
+</li>
+<li>If an element has child elements, they should be represented as an array of objects under the "children" property.</li>
 
 
-       <h1 className="text-3xl font-bold mb-4 text-center">Steps to Use Application</h1>
+  <li>The structure of the YAML file should be hierarchical, representing the parent-child relationships of elements.
+</li>
+
+<li><strong>The root element should not contain a hyphen ("-") at the start, unlike other child elements, to distinguish it as the top-level element.
+
+
+
+</strong></li>
+<li>Demo File</li>
+  </ul>
+
+  <img src={'/yamlfile.png'} className='mx-auto my-2' />
+
+
+</p>
+
+<hr />
+       <h1 className="text-3xl font-bold mb-4 mt-4 text-center">Steps to Use</h1>
   <h2 className="text-xl font-bold mt-4 mb-2">Step 1: Login or Register</h2>
   <p className="text-gray-600 mb-6">
     To use the YAML visualizer, first, the user needs to either log in or register on the platform. If the user already has an account, they can log in using their credentials. Otherwise, they can register by providing the required information.
@@ -44,7 +73,8 @@ function page() {
 
   <h2 className="text-xl font-bold mt-4 mb-2">Demo Login Code (For Testing Purpose)</h2>
   <p className="text-gray-600 mb-6">
-    For demo and testing purposes, the platform will provide a login code or token that users can use without the need to register. This demo login code will grant temporary access to the visualizer, allowing users to experience the platform without creating an account.
+    For demo and testing purposes, the platform will provide a login code (given in login page) that users can use without the need to register. 
+    This demo login code will grant temporary access to the visualizer, allowing users to experience the platform without creating an account.
   </p>
 
 

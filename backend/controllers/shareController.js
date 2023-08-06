@@ -2,6 +2,8 @@ const ShareID = require("../Models/shareModel")
 const ShortUniqueId = require('short-unique-id');
 const uid = new ShortUniqueId({ length: 8 });
 
+
+// Generate Sharable Key
 const generator = async (req, res) => {
     try {
         const original_url = req.body.original_url;
@@ -36,7 +38,7 @@ const generator = async (req, res) => {
 // Getting Original URL from Short URL 
 const get_url = async(req, res)=>{
     try {
-        const short_id = req.body.short_id || req.query.short_id;
+        const short_id = req.query.short_id;
         const data = await ShareID.findOne({shortID: short_id})
         if(data){
             res.status(200).send({ succes: true, data: data })

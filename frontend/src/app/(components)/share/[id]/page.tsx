@@ -2,6 +2,7 @@
 import React, {useEffect} from 'react'
 import GetProjectForViewer from '../../../Axios/Requests/GetProjectForViewer'
 import { ReactFlowFunction } from '../../app/[id]/reactFlow';
+import Loading from './loading';
 
 export default function Page({ params }: { params: { id: string } }) {
     const { project, loading, getData } = GetProjectForViewer("?unique_key=" + params.id);
@@ -25,9 +26,7 @@ export default function Page({ params }: { params: { id: string } }) {
         <div className="z-0 w-screen h-screen">
           
           {loading ? (
-            <div className="bg-gray-50 z-10 h-screen ">
-              <h1 className="text-4xl text-center ">Loading</h1>
-            </div>
+       <Loading/>
           ) : (
             <ReactFlowFunction data={data} />
           )}

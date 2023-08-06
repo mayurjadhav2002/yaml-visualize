@@ -22,30 +22,32 @@ const storage = multer.diskStorage({
     }
 });
 
+// Initializing Uploader
 const upload = multer({storage: storage});
+// Controller YAML 
 const yaml_controller = require('../controllers/yamlController');
+
+
 
 // File Upload Route '/api/file/upload/' required data = {user, file, header['Authorization']/token}
 yaml_visulizer_route.post('/upload', auth, upload.single('file'), yaml_controller.new_project);
-// yaml_visulizer_route.post('/demo_upload', upload.single('file'), yaml_controller.file_upload);
 
-
-// Get Project By ID
+// Get Project By ID, need user_id in query parameter
 yaml_visulizer_route.get('/projects', auth, yaml_controller.get_project);
 
-// Delete Project BY ID
+// Delete Project BY ID. need unique key of project in either query or body of request
 yaml_visulizer_route.put("/delete", auth, yaml_controller.delete_project)
 
-
-// 
+// Get particular project.  need unique key of project in  query
 yaml_visulizer_route.get('/project_by_id', auth, yaml_controller.get_project_by_id);
 
-
+// Updating Project title. need to pass unique key in Project body or query of project
 yaml_visulizer_route.put("/update_project_name", auth, yaml_controller.updateTitle)
 
-
+// getting original link of the project, need unique_key in query parameter
 yaml_visulizer_route.get("/share", yaml_controller.get_project_by_view_id)
 
+// Download route to download the file
 yaml_visulizer_route.get('/download', (req, res, next) => {
     try {
       const file = path.join(__dirname, '..',`/public/yaml/` + (req.body.filename || req.query.filename));

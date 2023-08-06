@@ -26,12 +26,12 @@ function Navbar() {
                   </Link>
                 </li>
                 <li>
-                  <Link className="text-gray-500 transition hover:text-gray-500/75" href={'/how-to-guide'}>
+                  <Link className="text-gray-500 transition hover:text-gray-500/75" href={'/Helper/how-to-guide'}>
                     How to Use
                   </Link>
                 </li>
                 <li>
-                  <a className="text-gray-500 transition hover:text-gray-500/75" href={'/documentation'}>
+                  <a className="text-gray-500 transition hover:text-gray-500/75" href={'/Helper/documentation'}>
                     Guide
                   </a>
                 </li>

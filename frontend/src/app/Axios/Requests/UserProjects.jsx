@@ -14,7 +14,7 @@ function UserProjects(param) {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState();
 
-    axios.defaults.baseURL = 'http://localhost:3080/';
+    axios.defaults.baseURL = `${process.env.NEXT_PUBLIC_BACKEND_URL}`;
     const getData = async (link) => {
         try {
             setLoading(true);

@@ -51,10 +51,14 @@ function Sidebar() {
                         
                             </Link>
                         </li>
+<li>
+<span className='text-xs text-gray-700 font-semibold'>This Sidebar have non-working links</span>
 
+</li>
                     
                     </ul>
                 </div>
+
             </aside>
 
         </div>

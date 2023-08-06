@@ -1,9 +1,8 @@
 'use client'
-import React, { useEffect, useState } from "react";
+import React, { useEffect, Suspense } from "react";
 import Navbar from "../../Navbar/navbar";
 import './index.css';
 import Submenu from "./submenu";
-import { useRouter } from "next/router";
 import GetProject from "@/app/Axios/Requests/GetProject";
 import Head from "next/head";
 import { ReactFlowFunction } from "./reactFlow";
@@ -38,7 +37,10 @@ export default function Page({ params }: { params: { id: string } }) {
               <h1 className="text-4xl text-center ">Loading</h1>
             </div>
           ) : (
+            <Suspense fallback={<p>Loading feed...</p>}>
+
             <ReactFlowFunction data={data} />
+            </Suspense>
           )}
         </div>
       </div>

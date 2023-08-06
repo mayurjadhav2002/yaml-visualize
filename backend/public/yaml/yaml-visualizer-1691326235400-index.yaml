@@ -1,5 +1,5 @@
 id: 0
-name: My Entity
+name: company
 children:
   - id: 1
     name: MARKET

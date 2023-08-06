@@ -29,18 +29,7 @@ export default function projects() {
         projects,
         loading, getData
     } = UserProjects(`/api/file/projects?user=${user._id}`);
-    // File Upload 
-    // called every time a file's `status` changes
-    // const handleChangeStatus = ({file}) => { 
-    //     const body  = new FormData();
-    //     body.append('file', file)
-    //     const request:Boolean = axios.post('http://localhost:3080/api/file/demo_upload', body)
-    //     if(request){
-    //         console.log('file uploaded')
-    //     }else{
-    //         console.log("failed")
-    //     }    }
-// const data = projects.data;
+ 
     return (
         <div>
     <Head>

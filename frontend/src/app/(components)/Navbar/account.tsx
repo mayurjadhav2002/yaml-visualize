@@ -1,30 +1,37 @@
 'use client'
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Menu, Transition } from '@headlessui/react'
 import {BiCaretDown} from 'react-icons/bi'
 
 
-// Get User Data
-if (typeof window !== 'undefined') {
-  var user = localStorage.getItem('user');
-  if (user) {
-      user = JSON.parse(user);
-      console.log(user)
-  } else {
-    window.location.href = '/authentication/login';
-
-  }
-}
-
 
 function Account(){
-  const handleLogout = ()=>{
-    localStorage.removeItem('user')
-    user= null;
+  // State to manage user data
+  const [user, setUser] = useState(null);
 
-    // navigate('/login')
-    window.location.href = 'http://localhost:3000/authentication/login';
+  // Get User Data when the component mounts
+  useEffect(() => {
+    const userData = localStorage.getItem('user');
+    if (userData) {
+      setUser(JSON.parse(userData));
+    } else {
+      window.location.href = '/authentication/login';
+    }
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem('user');
+    setUser(null);
+
+    // Redirect to login page
+    window.location.href = `${process.env.NEXT_PUBLIC_APP_URL}/authentication/login`;
+  };
+
+  // Render the component only if user data is available
+  if (!user) {
+    return null;
   }
+
   return (
     <>
     <div>

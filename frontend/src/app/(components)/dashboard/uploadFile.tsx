@@ -4,6 +4,9 @@ import { FcFile } from 'react-icons/fc';
 import axios from 'axios';
 import Dropzone from 'react-dropzone-uploader';
 import 'react-dropzone-uploader/dist/styles.css';
+import { Button } from 'flowbite-react';
+import Link from 'next/link';
+const download = require("downloadjs");
 
 export default function UploadFile({ user }) {
   const [uploadInProgress, setUploadInProgress] = useState(false);
@@ -49,6 +52,11 @@ export default function UploadFile({ user }) {
         }
       } catch (error) {
         console.error('Error uploading file:', error);
+        toast.error('Error! Please Check your file meets the requirements', {
+          position: toast.POSITION.BOTTOM_RIGHT,
+          className: 'foo-bar',
+        });
+
       } finally {
         setUploadInProgress(false);
       }
@@ -96,6 +104,78 @@ export default function UploadFile({ user }) {
           />
         </div>
       </form>
+      <h1 className='text-lg font-bold mt-10 mb-2'>Download the Demo YAML Files below</h1>
+      <div className='flex gap-2'>
+      
+      <Button color="success" className="bg-green-800 mr-3"   
+      onClick={async () => {
+                const res = await fetch(`${process.env.NEXT_APP_BACKEND_URL}/api/file/download`, { filename: 'Alphabets.yaml' });
+                const blob = await res.blob();
+                download(blob, 'Alphabets.yaml');
+                toast.success('File Downloded', {
+                  position: toast.POSITION.BOTTOM_RIGHT,
+                  className: 'foo-bar',
+                });
+              }}>
+        Alphabet.yaml
+      </Button> 
+      <Button color="success" className="bg-blue-800 mr-3"
+        onClick={async () => {
+          const res = await fetch(`${process.env.NEXT_APP_BACKEND_URL}/api/file/download`, { filename: 'Enginnering.yaml' });
+          const blob = await res.blob();
+          download(blob, 'Enginnering.yaml');
+          toast.success('File Downloded', {
+            position: toast.POSITION.BOTTOM_RIGHT,
+            className: 'foo-bar',
+          });
+        }}
+      >
+        Engineering.yaml
+      </Button> 
+      <Button color="success" className="bg-violet-800 mr-3"
+        onClick={async () => {
+          const res = await fetch(`${process.env.NEXT_APP_BACKEND_URL}/api/file/download`, { filename: 'github_commit.yaml' });
+          const blob = await res.blob();
+          download(blob, 'github_commit.yaml');
+          toast.success('File Downloded', {
+            position: toast.POSITION.BOTTOM_RIGHT,
+            className: 'foo-bar',
+          });
+        }}
+      >
+        github_commit.yaml
+      </Button> 
+      <Button color="success" className="bg-gray-800 mr-3"
+        onClick={async () => {
+          const res = await fetch(`${process.env.NEXT_APP_BACKEND_URL}/api/file/download`, { filename: 'Grandfather.yaml' });
+          const blob = await res.blob();
+          download(blob, 'Grandfather.yaml');
+          toast.success('File Downloded', {
+            position: toast.POSITION.BOTTOM_RIGHT,
+            className: 'foo-bar',
+          });
+        }}
+      >
+        grandfather.yaml
+      </Button> 
+      <Button color="success" className="bg-red-800 mr-3"
+        onClick={async () => {
+          const res = await fetch(`${process.env.NEXT_APP_BACKEND_URL}/api/file/download`, { filename: 'company.yaml' });
+          const blob = await res.blob();
+          download(blob, 'company.yaml');
+          toast.success('File Downloded', {
+            position: toast.POSITION.BOTTOM_RIGHT,
+            className: 'foo-bar',
+          });
+        }}
+      >
+        company.yaml
+      </Button> 
+      <Link href={'/Helper/how-to-guide'} className='text-blue-800'>Error in Uploading file? Please make sure your file is meeting the requirements, click to read. </Link>
+
+
+      
+           </div>
     </div>
   );
 }

@@ -1,0 +1,96 @@
+id: 1
+name: Root
+children:
+    - id: 2
+      name: Version 1.0.0
+      children:
+        - id: 3
+          name: Commit 1
+          children:
+            - id: 4
+              name: Sub-Commit 1
+              children: []
+            - id: 5
+              name: Sub-Commit 2
+              children: []
+        - id: 6
+          name: Commit 2
+          children: []
+        - id: 7
+          name: Commit 3
+          children: []
+    - id: 8
+      name: Version 1.1.0
+      children:
+        - id: 9
+          name: Commit 4
+          children:
+            - id: 10
+              name: Sub-Commit 3
+              children: []
+            - id: 11
+              name: Sub-Commit 4
+              children: []
+        - id: 12
+          name: Commit 5
+          children: []
+    - id: 13
+      name: Version 1.2.0
+      children:
+        - id: 14
+          name: Commit 6
+          children: []
+        - id: 15
+          name: Commit 7
+          children: []
+        - id: 16
+          name: Commit 8
+          children:
+            - id: 17
+              name: Sub-Commit 5
+              children: []
+            - id: 18
+              name: Sub-Commit 6
+              children: []
+    - id: 19
+      name: Version 2.0.0
+      children:
+        - id: 20
+          name: Commit 9
+          children: []
+        - id: 21
+          name: Commit 10
+          children:
+            - id: 22
+              name: Sub-Commit 7
+              children: []
+        - id: 23
+          name: Commit 11
+          children: []
+    - id: 24
+      name: Version 2.1.0
+      children:
+        - id: 25
+          name: Commit 12
+          children: []
+        - id: 26
+          name: Commit 13
+          children:
+            - id: 27
+              name: Sub-Commit 8
+              children: []
+    - id: 28
+      name: Version 2.2.0
+      children:
+        - id: 29
+          name: Commit 14
+          children: []
+        - id: 30
+          name: Commit 15
+          children: []
+        - id: 31
+          name: Commit 16
+          children:
+            - id: 32
+              name: Sub-Commit 9
+              children: []

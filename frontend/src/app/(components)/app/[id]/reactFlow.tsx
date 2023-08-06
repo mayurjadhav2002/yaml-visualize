@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import ReactFlow, {
   useNodesState,
   useEdgesState,
@@ -13,14 +13,11 @@ import dagre from "dagre";
 import "reactflow/dist/style.css";
 import "./index.css";
 
-import axios from "axios";
-
-export const ReactFlowFunction = ({data}) => {
-  console.log("Data", data)
-  const position = { x: 0, y: 0 };
+export const ReactFlowFunction = ({ data }) => {
+  // console.log("Data", data)
+  // Setting Initial Nodes
   const initialNodes = data.nodes
-
-  const initialEdges =data.edges
+  const initialEdges = data.edges
 
   const dagreGraph = new dagre.graphlib.Graph();
   dagreGraph.setDefaultEdgeLabel(() => ({}));
@@ -68,7 +65,7 @@ export const ReactFlowFunction = ({data}) => {
   const [nodes, setNodes, onNodesChange] = useNodesState(layoutedNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(layoutedEdges);
   const [hidden, setHidden] = useState(true);
-  
+
 
   const hide = (hidden: boolean, childEdgeID: string | any[], childNodeID: string | any[]) => (nodeOrEdge) => {
     if (
@@ -137,12 +134,13 @@ export const ReactFlowFunction = ({data}) => {
         zoomOnPinch={true}
         zoomOnDoubleClick={true}
         attributionPosition="bottom-right"
-        
+
       >
-         <MiniMap  zoomable pannable />
-      <Controls />
+        <MiniMap zoomable pannable />
+        <Controls />
         <Background variant="dots" gap={12} size={1} />
       </ReactFlow>
     </div>
+  
   );
 };

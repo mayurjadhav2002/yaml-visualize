@@ -131,7 +131,7 @@ const new_project = async (req, res) => {
 // This Controller will send all the projects created by that user
 const get_project = async (req, res) => {
     try {
-        const user = req.body.user || req.query.user;
+        const user =  req.query.user;
         // const id = req.body.id;
         const project = await YAML.find({ user: user, isDeleted: false }).sort({ updatedAt: 'descending' });
         if (project) {
@@ -147,6 +147,9 @@ const get_project = async (req, res) => {
 
     }
 }
+
+
+
 
 // Delete the Project
 
@@ -177,7 +180,7 @@ const delete_project = async (req, res) => {
 // Get particular Project to visualize
 const get_project_by_id = async (req, res) => {
     try {
-        const unique = req.body.unique_key || req.query.unique_key;
+        const unique =  req.query.unique_key;
         const update = { updatedAt: new Date() }
         const data = await YAML.findOneAndUpdate({ unique_key: unique }, update);
         if (data) {
@@ -190,6 +193,7 @@ const get_project_by_id = async (req, res) => {
     }
 }
 
+//This route is for only viewer projects ie. Share link
 const get_project_by_view_id = async (req, res) => {
     try {
         const unique = req.body.unique_key || req.query.unique_key;

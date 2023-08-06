@@ -1,0 +1,123 @@
+id: 1
+name: Engineering College
+children:
+    - id: 2
+      name: Computer Science and Engineering
+      children:
+        - id: 3
+          name: Artificial Intelligence
+          children:
+            - id: 4
+              name: Natural Language Processing
+            - id: 5
+              name: Computer Vision
+            - id: 6
+              name: Robotics
+        - id: 7
+          name: Data Science
+          children:
+            - id: 8
+              name: Data Analytics
+            - id: 9
+              name: Machine Learning
+            - id: 10
+              name: Big Data
+        - id: 11
+          name: Software Engineering
+          children:
+            - id: 12
+              name: Web Development
+            - id: 13
+              name: Mobile App Development
+            - id: 14
+              name: DevOps
+    - id: 15
+      name: Electronics and Communication Engineering
+      children:
+        - id: 16
+          name: Communication Systems
+          children:
+            - id: 17
+              name: Wireless Communication
+            - id: 18
+              name: Satellite Communication
+            - id: 19
+              name: Optical Communication
+        - id: 20
+          name: VLSI Design
+          children:
+            - id: 21
+              name: Analog VLSI Design
+            - id: 22
+              name: Digital VLSI Design
+            - id: 23
+              name: Mixed-Signal VLSI Design
+        - id: 24
+          name: Embedded Systems
+          children:
+            - id: 25
+              name: Real-time Embedded Systems
+            - id: 26
+              name: Embedded Software Development
+            - id: 27
+              name: IoT Systems
+    - id: 28
+      name: Mechanical Engineering
+      children:
+        - id: 29
+          name: Thermodynamics
+          children:
+            - id: 30
+              name: Heat Transfer
+            - id: 31
+              name: Fluid Mechanics
+            - id: 32
+              name: Combustion Engines
+        - id: 33
+          name: Solid Mechanics
+          children:
+            - id: 34
+              name: Structural Analysis
+            - id: 35
+              name: Finite Element Analysis
+            - id: 36
+              name: Composite Materials
+        - id: 37
+          name: Robotics and Automation
+          children:
+            - id: 38
+              name: Industrial Robotics
+            - id: 39
+              name: Automated Manufacturing
+            - id: 40
+              name: Control Systems
+    - id: 41
+      name: Civil Engineering
+      children:
+        - id: 42
+          name: Structural Engineering
+          children:
+            - id: 43
+              name: Building Design
+            - id: 44
+              name: Bridge Design
+            - id: 45
+              name: Seismic Analysis
+        - id: 46
+          name: Environmental Engineering
+          children:
+            - id: 47
+              name: Water Resource Management
+            - id: 48
+              name: Waste Management
+            - id: 49
+              name: Air Pollution Control
+        - id: 50
+          name: Transportation Engineering
+          children:
+            - id: 51
+              name: Highway Design
+            - id: 52
+              name: Traffic Engineering
+            - id: 53
+              name: Public Transportation Planning

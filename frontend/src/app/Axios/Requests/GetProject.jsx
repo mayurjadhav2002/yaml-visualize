@@ -12,7 +12,7 @@ function GetProject(param) {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState();
 
-    axios.defaults.baseURL = 'http://localhost:3080/api/file/project_by_id';
+    axios.defaults.baseURL = `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/file/project_by_id`;
     const getData = async (link) => {
         try {
 

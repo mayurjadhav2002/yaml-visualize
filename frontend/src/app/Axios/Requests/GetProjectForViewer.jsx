@@ -6,7 +6,7 @@ function GetProjectForViewer(param) {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState();
 
-    axios.defaults.baseURL = 'http://localhost:3080/api/file/share';
+    axios.defaults.baseURL = `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/file/share`;
     const getData = async (link) => {
         try {
 

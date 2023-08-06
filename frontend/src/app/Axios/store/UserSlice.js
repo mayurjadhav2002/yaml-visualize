@@ -5,7 +5,7 @@ export const loginUser = createAsyncThunk(
     'user/loginUser',
     async(userCredential) =>{
         console.log(userCredential.userCredential)
-        const request = await axios.post(`http://192.168.0.105:3080/api/login`, userCredential.userCredential);
+        const request = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/login`, userCredential.userCredential);
         const response = await request.data.data;
         localStorage.setItem('user', JSON.stringify(response));
         return response;
