@@ -24,7 +24,8 @@ user[0] = "None"
 
 
 
-export default function projects() {
+
+export default function Project() {
     // const router = useRouter()
 
     // const {user_id} = router.query;

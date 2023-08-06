@@ -6,6 +6,7 @@ import Link from 'next/link';
 import React, { useState, useEffect } from 'react'
 import {toast, ToastContainer } from 'react-toastify';
 
+
 function Page() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -13,6 +14,7 @@ function Page() {
   const [lastName, setLastName] = useState('');
   const [error, setError] = useState('');
   const [loading, setloading] = useState(false)
+
 
   const url = `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/register`;
   const handleSubmit = async () => {

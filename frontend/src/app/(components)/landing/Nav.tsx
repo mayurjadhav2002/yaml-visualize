@@ -8,6 +8,7 @@ function Nav() {
    <div
      className="mx-auto flex h-16 items-center gap-8 px-4 sm:px-6 lg:px-8"
    >
+    
              <Link className="block text-blue-600" href="/">
       <h3 className='text-lg font-bold'>YAML visualizer</h3>
    

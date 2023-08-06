@@ -1,6 +1,7 @@
 import React from 'react';
 
 const ProjectDocumentation = () => {
+  
   return (
     <div className="container mx-auto py-10 px-4 text-ellipsis">
       <h1 className="text-3xl font-bold mb-6">YAML Visualize Project Documentation</h1>

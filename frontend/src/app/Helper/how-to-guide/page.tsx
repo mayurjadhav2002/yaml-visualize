@@ -4,6 +4,7 @@ import React from 'react'
 function page() {
   return (
     <div>
+      
        <Nav/>
        
        <div className="max-w-2xl mx-auto  py-8">

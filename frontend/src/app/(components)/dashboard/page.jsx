@@ -12,6 +12,8 @@ import Head from 'next/head';
 
 function Page() {
 
+  
+
   useEffect(() => {
 
       document.title = "Dashboard";

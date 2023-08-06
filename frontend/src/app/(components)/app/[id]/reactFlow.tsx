@@ -14,6 +14,7 @@ import "reactflow/dist/style.css";
 import "./index.css";
 
 export const ReactFlowFunction = ({ data }: any) => {
+  
   // console.log("Data", data)
   // Setting Initial Nodes
   const initialNodes = data.nodes

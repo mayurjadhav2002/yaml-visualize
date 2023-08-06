@@ -53,6 +53,7 @@ function Submenu({ id, projectData }) {
             const body = {
               project_name: projectName,
             };
+            
 
             console.log('Request body:', body);
 
