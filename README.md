@@ -166,11 +166,3 @@ For demo and testing purposes, the platform will provide a login code (given in 
 | :-------- | :------- | :-------------------------------- |
 | `unique_key`      | `string` | **Required**. Unique key of project |
 
-
-
-
-## Lessons Learned
-
-During the development of this application, I had the valuable opportunity to explore and work with the reactFlow library for the first time. The process of converting the uploaded YAML data into JSON format and extracting the nodes and parent nodes was the most challenging aspect of the project. However, I successfully implemented a robust conversion code with an optimized time complexity of O(n).
-
-Another significant learning experience was using ReactFlow and Next.js with Typescript. This combination allowed me to create a powerful and efficient user interface for the application. Additionally, I gained valuable knowledge about utilizing AWS S3 CLI for cloud storage, implementing new hooks, and leveraging the react-toastify library for displaying user notifications.
